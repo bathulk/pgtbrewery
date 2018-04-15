@@ -70,7 +70,6 @@ public class VisionController {
 		Feature feature = Feature.newBuilder().setType(Feature.Type.LOGO_DETECTION).build();
 		AnnotateImageRequest request =
 				AnnotateImageRequest.newBuilder().setImage(image).addFeatures(feature).build();
-		
 		responses = this.imageAnnotatorClient.batchAnnotateImages(Collections.singletonList(request));
 
 		StringBuilder responseBuilder = new StringBuilder("<table border=\"1\">");
@@ -89,7 +88,7 @@ public class VisionController {
 				responseBuilder.append("<tr><td>")
 						.append(annotation.getDescription())
 						.append("</td><td>")
-						.append(annotation.getScore()* 100)
+						.append(annotation.getScore())
 						.append("%</td></tr>");
 			}
 		}
